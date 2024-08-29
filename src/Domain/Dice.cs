@@ -2,9 +2,9 @@ namespace Domain;
 
 public class Dice
 {
-    private Random _randomizer = default!;
+    private Random _randomizer = new();
 
-    public int Dots = default!;
+    public int Dots { get; private set; }
 
     public Dice()
     {

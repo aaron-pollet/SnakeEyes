@@ -5,17 +5,22 @@
 <h1>Snake Eyes</h1>
 
 <div>
-    <Dice Pips="4"/>
-    <Dice Pips="6"/>
+    <Dice Pips="@_game.Eye1"/>
+    <Dice Pips="@_game.Eye2"/>
 </div>
 
-@* <p>HighScore:@game.HighScores</p> *@
-@* <p>Score:@game.Total</p> *@
-@* *@
-@* <button>@game.Play</button> *@
+<p>Score:@_game.Total</p>
+
+<h3>HighScores</h3>
+<ul>
+    @foreach (var score in _game.HighScores.OrderByDescending(x => x))
+    {
+        <li>@score</li>
+    }
+</ul>
+
+<button @onclick="_game.Play">Play</button>
 
 @code{
-
-    Dice dice1 = new Dice();
-
+    private Game _game = new();
 }
