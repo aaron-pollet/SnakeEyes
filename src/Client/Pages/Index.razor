@@ -19,6 +19,8 @@
     }
 </ul>
 
+<button @onclick="_game.Play" disabled="@_game.HasSnakeEyes">Play</button>
+
 @if (_game.HasSnakeEyes)
 {
     <div class="alert alert-danger">Oeps you did it again!</div>
@@ -26,7 +28,6 @@
 }
 else
 {
-    <button @onclick="_game.Play">Play</button>
 }
 
 @code{
