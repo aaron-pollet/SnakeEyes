@@ -1,9 +1,21 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Snake Eyes</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Snake Eyes</h1>
 
-Welcome to your new app.
+<div>
+    <Dice Pips="4"/>
+    <Dice Pips="6"/>
+</div>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@* <p>HighScore:@game.HighScores</p> *@
+@* <p>Score:@game.Total</p> *@
+@* *@
+@* <button>@game.Play</button> *@
+
+@code{
+
+    Dice dice1 = new Dice();
+
+}
