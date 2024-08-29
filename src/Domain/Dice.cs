@@ -4,18 +4,15 @@ public class Dice
 {
     private Random _randomizer = default!;
 
-    public int Dots { get; set; }
+    public int Dots = default!;
 
     public Dice()
     {
-        // Dots = 1;
-        throw new NotImplementedException();
+        Dots = 6;
     }
 
     public void Roll()
     {
-        //i want a random number between 1 and 6 (included)
-        // Dots = _randomizer.Next(1, 7);
-        throw new NotImplementedException();
+        Dots = _randomizer.Next(1, 7);
     }
 }

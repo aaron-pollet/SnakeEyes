@@ -2,35 +2,45 @@
 public class Game
 {
     private readonly List<int> _highscores = new();
-    private Dice _dice1 = new Dice();
-    private Dice _dice2 = new Dice();
+    private Dice _dice1 = default!;
+    private Dice _dice2 = default!;
+
+    public int Eye1 => _dice1.Dots;
+    public int Eye2 => _dice2.Dots;
+
+    public bool HasSnakeEyes => Eye1 == 1 && Eye2 == 1;
+    public IReadOnlyList<int> HighScores => _highscores.AsReadOnly();
     
-    public int Eye1 { get; }
-    public int Eye2 { get; }
-    
-    public bool HasSnakeEyes { get; }
-    public IReadOnlyList<int> HighScores;
-    
-    public int Total { get; set; }
+    public int Total { get; private set; }
 
     public Game()
     {
-        throw new NotImplementedException();       
+        Initialize();
     }
 
     private void Initialize()
     {
-        throw new NotImplementedException();
+        _dice1 = new Dice();
+        _dice2 = new Dice();
     }
 
     public void Play()
     {
-        throw new NotImplementedException();
-        
+        _dice1.Roll();
+        _dice2.Roll();
+        if (HasSnakeEyes)
+        { 
+            _highscores.Add(Total);
+            Total = 0;
+        }
+        else
+        {
+            Total += (_dice1.Dots + _dice2.Dots);
+        }
     }
 
     public void Restart()
     {
-        throw new NotImplementedException();
+        Initialize();
     }
 }
